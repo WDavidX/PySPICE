@@ -1,0 +1,8 @@
+$DATA1 SOURCE='HSPICE' VERSION='E-2010.12-SP1 32-BIT'
+.TITLE '** generated for: hspiced'
+ vddval           lchunk           rval             cval              
+ rc               td2_3            nck_s            nck_d             
+ t_s              t_d              temper           alter#            
+  1.100e+00        1.000e+03        1.500e+03        5.000e-14        
+  5.175e-11        1.089e-10        1.000e+01        8.000e+00        
+  1.089e-09        8.709e-10        failed       1                 
