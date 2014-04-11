@@ -6,9 +6,9 @@ import os, re, sys
 print sys.argv[1:]
 argc=len(sys.argv)
 # argc=2
-types=[r"\w{1,}\.((ic)|(st)|(op)|(pa)|(su))[0-9]{1,}\w{0,}",r"\w{1,}.pyc", \
-       r"scope.log\w{0,}",r"\w{1,}\.\w{1,}~",r"logFile"] # aux files
-types2=[r"\w{1,}\.((sw)|(tr)|(ac)|(mt))[0-9]{1,}\w{0,}"] # results files
+types=[r"\w+\.((ic)|(st)|(op)|(pa)|(su))\d+\w*",r"\w+.pyc$", \
+       r"scope.log\w*",r"\w+~$",r"logFile"] # aux files
+types2=[r"\w+\.((sw)|(tr)|(ac)|(mt))\d+\w*"] # results files
 # types=types+types2  # include result files
 def tocheckexist(fname):
   for ftype in types:
@@ -33,8 +33,9 @@ def walkclean(curr_dir='./'):
           print "%20s"%(f), "  \t  ", checkresult        
   return counter
 
-nfind=walkclean()
+dir_to_clean='./'
+nfind=walkclean(dir_to_clean)
 if (argc==2):
-  print "%d files removed"%(nfind)
+  print "%d files removed from\n%s"%(nfind,os.path.abspath(dir_to_clean))
 else:
-  print "%d files found but not removed"%(nfind)
+  print "%d files found from\n%s"%(nfind,os.path.abspath(dir_to_clean))
