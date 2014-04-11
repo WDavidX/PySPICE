@@ -6,7 +6,9 @@ import os, re, sys
 
 print sys.argv[1:]
 argc=len(sys.argv)
-types=[r"\w{1,}\.((ic)|(st)|(op)|(pa))[0-9]{1,}\w{0,}",r"\w{1,}.pyc", r"scope.log\w{0,}"]
+# argc=2
+types=[r"\w{1,}\.((ic)|(st)|(op)|(pa))[0-9]{1,}\w{0,}",r"\w{1,}.pyc", \
+       r"scope.log\w{0,}",r"\w{1,}\.\w{1,}~"]
 
 def tocheckexist(fname):
   for ftype in types:
