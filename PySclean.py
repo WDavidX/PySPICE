@@ -13,7 +13,7 @@ types=[r"\w+\.((ic)|(st)|(op)|(pa)|(su))\d+\w*",r"\w+.pyc$", r"\w+.lis$",\
 type2,type3=[],[]
 types2=[r"\w+\.((sw)|(tr)|(ac)|(mt))\d+\w*"] # results files
 types3=[r"sxcmd.log\w*",r"\w*.ibs",r"\w+.((scs)|(ami)|(partial)|(ibs)|(srf)|(look)|(info)|(tran)|(old))$",\
-        r"\w+.((plt)|(save0)|(stev0)|(stet0)|(printSte0)|(mste0))$"]
+        r"\w+\.((plt)|(save0)|(stev0)|(stet0)|(printSte0)|(mste0)|(tar)|(config))$",r"#[^\s-]*#"]
 types=types+types2+types3  # include result files
 
 def removeEmptyFolders(path):
@@ -37,6 +37,7 @@ def tocheckexist(fname):
     if g is not None:
       # print "found ",g.group(0), "  ", ftype, "  ", fname
       return ftype
+  if len(fname.split('.'))==1: return "NO_EXTENTION"
   return None
 
 def walkclean(curr_dir='./'):
